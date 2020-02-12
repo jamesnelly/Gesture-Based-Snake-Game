@@ -66,6 +66,7 @@
      <Compile Include="Assets\CodeMonkey\Utils\World_Sprite.cs" />
      <Compile Include="Assets\Scripts\GameAssets.cs" />
      <Compile Include="Assets\Scripts\GameHandler.cs" />
+     <Compile Include="Assets\Scripts\Snake.cs" />
      <None Include="Assets\CodeMonkey\README.txt" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.3.0f6/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
