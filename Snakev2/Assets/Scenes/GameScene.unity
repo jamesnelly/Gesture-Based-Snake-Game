@@ -425,6 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0029057dfc1058b449ce1dc4579b718d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snake: {fileID: 383858267}
 --- !u!1 &1953127468
 GameObject:
   m_ObjectHideFlags: 0
@@ -469,3 +470,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   snakeHeadSprite: {fileID: 21300000, guid: b9b2b0bb0b329694a8a4662cdfe875f2, type: 3}
+  foodSprite: {fileID: 21300000, guid: 66424991e1ac5cb478054e98db510b67, type: 3}

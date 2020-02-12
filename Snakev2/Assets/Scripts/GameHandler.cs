@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey;
 using CodeMonkey.Utils;
-public class GameHandler : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-       Debug.Log("GameHandler.Start"); 
 
-     //  GameObject snakeHeadGameObject = new GameObject();
-      // SpriteRenderer snakeSpriteRenderer = snakeHeadGameObject.AddComponent<SpriteRenderer>();
-       //snakeSpriteRenderer.sprite = GameAssets.i.snakeHeadSprite;
+public class GameHandler : MonoBehaviour {
+
+    [SerializeField] private Snake snake;
+    private LevelGrid levelGrid;
+    private void Start() {
+        Debug.Log("GameHandler.Start");
+
+
+        levelGrid = new LevelGrid(19, 19);
+
+        snake.Setup(levelGrid);
+        levelGrid.Setup(snake);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

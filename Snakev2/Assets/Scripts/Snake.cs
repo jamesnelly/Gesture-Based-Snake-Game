@@ -8,8 +8,10 @@ public class Snake : MonoBehaviour
     private Vector2Int gridPosition;
     private float gridMoveTimer;
     private float gridMoveTimerMax;
-    
-    
+    private LevelGrid levelGrid;
+    public void Setup(LevelGrid levelGrid){
+        this.levelGrid = levelGrid;
+    }
     private void Awake(){
         gridPosition = new Vector2Int(10, 10);
         gridMoveTimerMax = .5f;
@@ -56,11 +58,17 @@ public class Snake : MonoBehaviour
             
             transform.position = new Vector3(gridPosition.x, gridPosition.y);
             transform.eulerAngles = new Vector3(0, 0, GetAngleFromVector(gridMoveDirection) +90);
+
+            levelGrid.SnakeMoved(gridPosition);
         }
     }
     private float GetAngleFromVector(Vector2Int dir){
         float n = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         if (n < 0) n += 360;
         return n;
+    }
+
+    public Vector2Int GetGridPosition(){
+        return gridPosition;
     }
 }
