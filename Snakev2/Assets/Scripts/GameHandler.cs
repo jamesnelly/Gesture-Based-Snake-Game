@@ -12,7 +12,7 @@ public class GameHandler : MonoBehaviour {
         Debug.Log("GameHandler.Start");
 
 
-        levelGrid = new LevelGrid(19, 19);
+        levelGrid = new LevelGrid(18,18);
 
         snake.Setup(levelGrid);
         levelGrid.Setup(snake);

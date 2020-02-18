@@ -10,5 +10,6 @@ public class GameAssets : MonoBehaviour
         i = this;
     }
    public Sprite snakeHeadSprite;
+   public Sprite snakeBodySprite;
    public Sprite foodSprite;
 }
