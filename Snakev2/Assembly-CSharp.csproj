@@ -68,6 +68,7 @@
      <Compile Include="Assets\Scripts\GameHandler.cs" />
      <Compile Include="Assets\Scripts\LevelGrid.cs" />
      <Compile Include="Assets\Scripts\Loader.cs" />
+     <Compile Include="Assets\Scripts\LoaderCallback.cs" />
      <Compile Include="Assets\Scripts\ScoreWindow.cs" />
      <Compile Include="Assets\Scripts\Snake.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
