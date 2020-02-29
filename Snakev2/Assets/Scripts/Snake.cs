@@ -124,6 +124,7 @@ public class Snake : MonoBehaviour
                     // Game Over!
                     CMDebug.TextPopup("DEAD!", transform.position);
                     state = State.Dead;
+                    //GameHandler.SnakeDied(); 
                 }
             }
 
