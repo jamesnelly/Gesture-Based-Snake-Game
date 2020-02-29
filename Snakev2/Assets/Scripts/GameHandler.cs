@@ -5,9 +5,14 @@ using CodeMonkey;
 using CodeMonkey.Utils;
 
 public class GameHandler : MonoBehaviour {
+    private static GameHandler instance;
+    private static int score;
 
     [SerializeField] private Snake snake;
     private LevelGrid levelGrid;
+    private void Awake(){
+        instance = this;
+    }
     private void Start() {
         Debug.Log("GameHandler.Start");
 
@@ -16,6 +21,14 @@ public class GameHandler : MonoBehaviour {
 
         snake.Setup(levelGrid);
         levelGrid.Setup(snake);
+    }
+
+    public static int GetScore(){
+        return score;
+    }
+    
+    public static void AddScore(){
+        score += 100;
     }
 
 }
