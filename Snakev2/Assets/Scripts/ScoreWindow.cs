@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ScoreWindow : MonoBehaviour
 {
-    private Text scoreText;
+    public Text scoreText;
     private void Awake(){
         scoreText = transform.Find("scoreText").GetComponent<Text>();
     }

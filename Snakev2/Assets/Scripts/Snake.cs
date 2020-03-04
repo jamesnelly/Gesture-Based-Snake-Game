@@ -35,12 +35,12 @@ public class Snake : MonoBehaviour
     
     
     private void Awake(){
-        gridPosition = new Vector2Int(10, 10);
-        gridMoveTimerMax = .2f;
+        gridPosition = new Vector2Int(30, 30);
+        gridMoveTimerMax = .1f;
         gridMoveTimer = gridMoveTimerMax;
         gridMoveDirection = Direction.Right;
         snakeMovePositionList = new List<SnakeMovePosition>();
-        snakeBodySize =0;
+        snakeBodySize = 60;
         snakeBodyPartList = new List<SnakeBodyPart>();
         state = State.Alive;
     }
@@ -95,10 +95,10 @@ public class Snake : MonoBehaviour
             Vector2Int gridMoveDirectionVector;
             switch (gridMoveDirection){
                 default:
-                case Direction.Right: gridMoveDirectionVector = new Vector2Int (+1,0); break;
-                case Direction.Left:  gridMoveDirectionVector = new Vector2Int (-1,0); break;
-                case Direction.Up:    gridMoveDirectionVector = new Vector2Int (0,+1); break;
-                case Direction.Down:  gridMoveDirectionVector = new Vector2Int (0,-1); break;
+                case Direction.Right: gridMoveDirectionVector = new Vector2Int (+1, 0); break;
+                case Direction.Left:  gridMoveDirectionVector = new Vector2Int (-1, 0); break;
+                case Direction.Up:    gridMoveDirectionVector = new Vector2Int (0, +1); break;
+                case Direction.Down:  gridMoveDirectionVector = new Vector2Int (0, -1); break;
             }
             gridPosition += gridMoveDirectionVector;
 
@@ -121,15 +121,13 @@ public class Snake : MonoBehaviour
             foreach (SnakeBodyPart snakeBodyPart in snakeBodyPartList){
                 Vector2Int snakeBodyPartGridPosition = snakeBodyPart.GetGridPosition();
                 if(gridPosition == snakeBodyPartGridPosition){
-                    // Game Over!
-                    CMDebug.TextPopup("DEAD!", transform.position);
                     state = State.Dead;
-                    //GameHandler.SnakeDied(); 
+                    GameHandler.SnakeDeath(); 
                 }
             }
 
             transform.position = new Vector3(gridPosition.x, gridPosition.y);
-            transform.eulerAngles = new Vector3(0, 0, GetAngleFromVector(gridMoveDirectionVector) -90);
+            transform.eulerAngles = new Vector3(0, 0, GetAngleFromVector(gridMoveDirectionVector) +90);
 
            
         }
