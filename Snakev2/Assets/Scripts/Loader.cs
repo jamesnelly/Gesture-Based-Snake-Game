@@ -9,6 +9,7 @@ public static class Loader {
     public enum Scene{
         GameScene,
         Loading,
+        MainMenu,
     }
 
     private static Action loaderCallbackAction;
