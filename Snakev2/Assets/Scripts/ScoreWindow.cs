@@ -12,7 +12,7 @@ public class ScoreWindow : MonoBehaviour
         instance = this;
         scoreText = transform.Find("scoreText").GetComponent<Text>();
 
-      //  Score.OnHighScoreChanged += Score_OnHighScoreChanged;
+        Score.OnHighScoreChanged += Score_OnHighScoreChanged;
         UpdateHighScore();
       
     }
@@ -22,12 +22,12 @@ public class ScoreWindow : MonoBehaviour
     }
 
     private void Update(){
-        //scoreText.text = Score.GetScore().ToString();
+        scoreText.text = Score.GetScore().ToString();
     }
 
     private void UpdateHighScore(){
-        // int highscore = Score.GetHighScore();
-         //transform.Find("highScoreText").GetComponent<Text>().text ="HIGHSCORE\n" + highscore.ToString();
+         int highscore = Score.GetHighScore();
+         transform.Find("highScoreText").GetComponent<Text>().text ="HIGHSCORE\n" + highscore.ToString();
     }
 
     public static void HideStatic(){

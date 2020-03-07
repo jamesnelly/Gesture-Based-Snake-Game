@@ -11,9 +11,9 @@ public class GameHandler : MonoBehaviour {
     private LevelGrid levelGrid;
     private void Awake(){
         instance = this;
-       // Score.InitializeStatic();
+       Score.InitializeStatic();
 
-       //Score.SetNewHighScore(100);
+       Score.SetNewHighScore(100);
     }
     private void Start() {
         Debug.Log("GameHandler.Start");
@@ -37,8 +37,8 @@ public class GameHandler : MonoBehaviour {
     }
 
     public static void SnakeDeath(){
-       //bool isNewHighScore = Score.SetNewHighScore();
-        //GameOverWindow.ShowStatic(isNewHighScore);
+       bool isNewHighScore = Score.SetNewHighScore();
+        GameOverWindow.ShowStatic(isNewHighScore);
         ScoreWindow.HideStatic();
     }
 

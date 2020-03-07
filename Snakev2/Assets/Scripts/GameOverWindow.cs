@@ -22,7 +22,7 @@ public class GameOverWindow : MonoBehaviour{
         gameObject.SetActive(true);
 
         transform.Find("NewHighScoreText").gameObject.SetActive(isNewHighScore);
-        //transform.Find("ScoreText").GetComponent<Text>().text = Score.GetScore().ToString();
+        transform.Find("ScoreText").GetComponent<Text>().text = Score.GetScore().ToString();
     }
 
     private void Hide() {

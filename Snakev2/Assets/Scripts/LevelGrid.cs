@@ -20,13 +20,6 @@ public class LevelGrid
     public void Setup(Snake snake){
         this.snake = snake;
 
-        // Testing Purposes
-
-        /*for (int i=0; i<50000; i++){
-            foodGameObject = new GameObject("Food", typeof(SpriteRenderer));
-            foodGameObject.GetComponent<SpriteRenderer>().sprite = GameAssets.i.foodSprite;
-        }*/
-
          SpawnFood();
     }
     private void SpawnFood(){
@@ -46,7 +39,7 @@ public class LevelGrid
         if(snakeGridPosition == foodGridPosition) {
             Object.Destroy(foodGameObject);
             SpawnFood();
-           // Score.AddScore();
+            Score.AddScore();
             return true;
         } else {
             return false;
