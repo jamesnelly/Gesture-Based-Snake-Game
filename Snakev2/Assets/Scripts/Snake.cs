@@ -1,11 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using CodeMonkey;
 using CodeMonkey.Utils;
+using LockingPolicy = Thalmic.Myo.LockingPolicy;
+using Pose = Thalmic.Myo.Pose;
+using UnlockType = Thalmic.Myo.UnlockType;
+using VibrationType =  Thalmic.Myo.VibrationType;
+
 
 public class Snake : MonoBehaviour
 {
+
+    public GameObject myo = null;
+
     private enum Direction{
         Left, 
         Right, 
@@ -45,6 +54,9 @@ public class Snake : MonoBehaviour
         state = State.Alive;
     }
 
+
+    private Pose _lastPose = Pose.Unknown;
+
     private void Update(){
         switch (state){
             case State.Alive:
@@ -57,6 +69,19 @@ public class Snake : MonoBehaviour
         
     }
     private void HandleInput(){
+
+         ThalmicMyo thalmicMyo = myo.GetComponent<ThalmicMyo> ();
+
+         if(thalmicMyo.pose != _lastPose){
+            _lastPose = thalmicMyo.pose;
+         
+
+        if (thalmicMyo.pose == Pose.Fist){
+            thalmicMyo.Vibrate (VibrationType.Medium);
+
+            ExtendedUnlockAndNotifyUserAction (thalmicMyo);
+      
+
         if (Input.GetKeyDown(KeyCode.UpArrow)){
             if (gridMoveDirection != Direction.Down){
                 gridMoveDirection = Direction.Up;
@@ -77,8 +102,9 @@ public class Snake : MonoBehaviour
                 gridMoveDirection = Direction.Right;
                 }
          }
+     }
     }
-
+  }
     private void HandleGridMovement(){
         gridMoveTimer += Time.deltaTime;
         if (gridMoveTimer >= gridMoveTimerMax){
@@ -272,6 +298,15 @@ public class Snake : MonoBehaviour
             }
         }
 
+    }
+
+    void ExtendedUnlockAndNotifyUserAction (ThalmicMyo myo){
+        ThalmicHub hub = ThalmicHub.instance;
+
+        if(hub.lockingPolicy == LockingPolicy.Standard){
+            myo.Unlock (UnlockType.Timed);
+        }
+        myo.NotifyUserAction ();
     }
 
 }
