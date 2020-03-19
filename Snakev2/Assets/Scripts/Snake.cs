@@ -76,33 +76,37 @@ public class Snake : MonoBehaviour
             _lastPose = thalmicMyo.pose;
          
 
-        if (thalmicMyo.pose == Pose.Fist){
+        if (thalmicMyo.pose == Pose.FingersSpread){
             thalmicMyo.Vibrate (VibrationType.Medium);
 
             ExtendedUnlockAndNotifyUserAction (thalmicMyo);
       
 
-        if (Input.GetKeyDown(KeyCode.UpArrow)){
+       } else if (thalmicMyo.pose == Pose.Fist){
             if (gridMoveDirection != Direction.Down){
                 gridMoveDirection = Direction.Up;
             }
+             ExtendedUnlockAndNotifyUserAction (thalmicMyo);
         }
-         if (Input.GetKeyDown(KeyCode.DownArrow)){
+         else if (thalmicMyo.pose == Pose.DoubleTap){
             if (gridMoveDirection != Direction.Up){
                 gridMoveDirection = Direction.Down;
              }
+              ExtendedUnlockAndNotifyUserAction (thalmicMyo);
         }
-         if (Input.GetKeyDown(KeyCode.LeftArrow)){
+         else if (thalmicMyo.pose == Pose.WaveIn){
             if (gridMoveDirection != Direction.Right){
                 gridMoveDirection = Direction.Left;
                 }
+                 ExtendedUnlockAndNotifyUserAction (thalmicMyo);
             }
-         if (Input.GetKeyDown(KeyCode.RightArrow)){
+         else if (thalmicMyo.pose == Pose.WaveOut){
             if (gridMoveDirection != Direction.Left){
                 gridMoveDirection = Direction.Right;
                 }
+            ExtendedUnlockAndNotifyUserAction (thalmicMyo);
          }
-     }
+     
     }
   }
     private void HandleGridMovement(){
