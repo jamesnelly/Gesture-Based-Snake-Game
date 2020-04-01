@@ -10,6 +10,7 @@ public class ScoreWindow : MonoBehaviour
     public Text scoreText;
     private void Awake(){
         instance = this;
+        // reference to the score text
         scoreText = transform.Find("scoreText").GetComponent<Text>();
 
         Score.OnHighScoreChanged += Score_OnHighScoreChanged;

@@ -10,8 +10,9 @@ public class GameOverWindow : MonoBehaviour{
 
     private void Awake(){
         instance = this;
-
+        // reference to this button
         transform.Find("retryBtn").GetComponent<Button_UI>().ClickFunc = () => {
+            // Load the GameScene
             Loader.Load(Loader.Scene.GameScene);
         };
         

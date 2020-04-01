@@ -14,6 +14,7 @@ public class PauseWindow : MonoBehaviour
         transform.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
         transform.GetComponent<RectTransform>().sizeDelta = Vector2.zero;
 
+        // references to the buttons
         transform.Find("resumeBtn").GetComponent<Button_UI>().ClickFunc = () => GameHandler.ResumeGame();
 
         transform.Find("mainMenuBtn").GetComponent<Button_UI>().ClickFunc = () => Loader.Load(Loader.Scene.MainMenu);

@@ -13,8 +13,11 @@ public static class Loader {
     }
 
     private static Action loaderCallbackAction;
+    // Recieving a scene
     public static void Load(Scene scene){
+        // this action will only be trigger after the loading Scene is loaded
         loaderCallbackAction = () => {
+            //Load this scene when the loading scene is complete
 
         SceneManager.LoadScene(scene.ToString());
         };

@@ -6,13 +6,16 @@ using CodeMonkey.Utils;
 public class MainMenu : MonoBehaviour
 {
     private enum Sub {
+        // this is the Main Sub-Menu
          Main,
+         // this the How to play Sub-Menu
          HowToPlay,
     }
    private void Awake(){
     transform.Find("howToPlaySubMenu").GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
     transform.Find("mainSub").GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
 
+    // these buutons are inside the Main-Sub
     transform.Find("mainSub").Find("PlayBtn").GetComponent<Button_UI>().ClickFunc = () => Loader.Load(Loader.Scene.GameScene);
 
     transform.Find("mainSub").Find("QuitBtn").GetComponent<Button_UI>().ClickFunc = () => Application.Quit();
@@ -24,7 +27,7 @@ public class MainMenu : MonoBehaviour
     ShowSub(Sub.Main);
 
    }
-
+    // switch statement on the sub we want to show first
    private void ShowSub(Sub sub){
        transform.Find("mainSub").gameObject.SetActive(false);
        transform.Find("howToPlaySubMenu").gameObject.SetActive(false); 

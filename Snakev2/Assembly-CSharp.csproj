@@ -64,9 +64,6 @@
      <Compile Include="Assets\CodeMonkey\Utils\World_Bar.cs" />
      <Compile Include="Assets\CodeMonkey\Utils\World_Mesh.cs" />
      <Compile Include="Assets\CodeMonkey\Utils\World_Sprite.cs" />
-     <Compile Include="Assets\Myo Samples\Scripts\ColorBoxByPose.cs" />
-     <Compile Include="Assets\Myo Samples\Scripts\JointOrientation.cs" />
-     <Compile Include="Assets\Myo Samples\Scripts\SampleSceneGUI.cs" />
      <Compile Include="Assets\Myo\Scripts\Myo.NET\EventTypes.cs" />
      <Compile Include="Assets\Myo\Scripts\Myo.NET\Hub.cs" />
      <Compile Include="Assets\Myo\Scripts\Myo.NET\Properties\AssemblyInfo.cs" />
